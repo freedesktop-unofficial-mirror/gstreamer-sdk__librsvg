@@ -47,7 +47,7 @@ rsvg_loader_LDADD = \
 rsvg_loader_DEPENDENCIES = libpixbufloader-svg.la gdk-pixbuf-loaders
 
 gdk-pixbuf-loaders: Makefile
-	$(AM_V_GEN) ( PATH=$$PATH:../.libs $(GDK_PIXBUF_QUERYLOADERS) ./libpixbufloader-svg.la && $(GDK_PIXBUF_QUERYLOADERS)) > gdk-pixbuf.loaders 2>/dev/null
+	$(AM_V_GEN) ( export PATH=$$PATH:$(top_builddir)/.libs && $(GDK_PIXBUF_QUERYLOADERS) ./libpixbufloader-svg.la && $(GDK_PIXBUF_QUERYLOADERS)) > gdk-pixbuf.loaders 2>/dev/null
 
 install-data-hook:
 	if test -z "$(DESTDIR)"; then \
